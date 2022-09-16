@@ -1,7 +1,7 @@
 nums_list = []
 
-N = int(input('Enter number of numbers: '))
-for _ in range(N):
+n = int(input('Enter number of numbers: '))
+for _ in range(n):
     num = int(input('Next number: '))
     nums_list.append(num)
 
