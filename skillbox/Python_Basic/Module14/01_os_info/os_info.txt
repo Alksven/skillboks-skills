@@ -1,0 +1,4 @@
+OS info is 
+uname_result(system='Linux', node='ven-TM1613', release='5.15.0-47-generic', version='#51-Ubuntu SMP Thu Aug 11 07:51:15 UTC 2022', machine='x86_64')
+
+Python version is 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0] ('64bit', 'ELF')
