@@ -19,12 +19,12 @@ for count_people in range(num_of_people):
 
 people_list = sorted(people_list)
 
-for i_people, elem_people in enumerate(people_list):
+for elem_people in people_list:
     if skates_list.count(elem_people) >= 1:
         skates_list.remove(elem_people)
         win_people += 1
     else:
-        for i_skate, elem_skate in enumerate(skates_list):
+        for elem_skate in skates_list:
             if people_list.count(elem_skate) >= 1:
                 continue
             if elem_skate > elem_people:
