@@ -31,4 +31,4 @@ for i_people, elem_people in enumerate(people_list):
                 skates_list.remove(elem_skate)
                 win_people += 1
                 break
-print(win_people)
+print('Наибольшее кол-во людей, которые могут взять ролики:', win_people)
