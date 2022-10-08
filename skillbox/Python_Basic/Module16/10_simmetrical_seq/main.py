@@ -1,10 +1,15 @@
 num_of_num = int(input("Кол-во чисел: "))
+
+if num_of_num == 1:
+    print('Недостаточно чисел для вычисления.')
+    exit()
 number_list = []
 reverse_number_list = []
 
 for _ in range(num_of_num):
     number = int(input("Число: "))
     number_list.append(number)
+
 
 print("\nПоследовательность: ", number_list)
 
