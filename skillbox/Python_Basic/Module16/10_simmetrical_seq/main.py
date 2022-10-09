@@ -10,17 +10,19 @@ for _ in range(num_of_num):
     number = int(input("Число: "))
     number_list.append(number)
 
-
 print("\nПоследовательность: ", number_list)
 
 for index in range(len(number_list) - 1, -1, -1):
     reverse_number_list.append(number_list[index])
 
 while True:
-    if number_list[len(number_list) - 1] == reverse_number_list[0]:
+
+    if number_list == reverse_number_list:
+        print('Последовательность являются симметричной', number_list)
+        exit()
+    elif number_list[len(number_list) - 1] == reverse_number_list[0]:
         reverse_number_list.remove(reverse_number_list[0])
     else:
         break
 
-print("Нужно приписать чисел: ", len(reverse_number_list))
-print("Сами числа: ", reverse_number_list)
+print(f'Нужно приписать чисел: {len(reverse_number_list)} \nСами числа: {reverse_number_list}')
