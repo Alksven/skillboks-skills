@@ -1,4 +1,4 @@
-message = input('Сообщение: ')
+message = input('Сообщение: ') + ' '
 new_message = ''
 help_list = []
 
