@@ -13,6 +13,9 @@ def function(help_variable):
 ip = input('Введите IP: ')
 new_ip = []
 help_variable = ''
+if len(ip) < 7:
+    print('Слишком короткий IP')
+    exit()
 
 
 for i in ip:
