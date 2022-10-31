@@ -9,23 +9,24 @@ family_member = {
             "age": 6
         },
         {
-            "name": "Baob",
+            "name": "Bfob",
             "age": 8
         }
     ]
 }
 
-childrens_dict = dict()
+childrens_dict = {}
 for child in family_member["children"]:
     childrens_dict[child["name"]] = child["age"]
 
-search_bob = childrens_dict.get('Bob', None)
+search_bob = childrens_dict.get("Bob", None)
 if search_bob:
-    print('Bob found.')
+    print("Bob найден")
 else:
-    print('Bob not found.')
-    exit()
+    print("Bob-а нету!")
 
-if search_bob:
-    print(family_member['surname'])
-
+childrens_surname = family_member.get("surname", None)
+if childrens_surname:
+    print(childrens_surname)
+else:
+    print("Nosurname")
