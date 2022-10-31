@@ -11,4 +11,9 @@ players_dict = {
 
 }
 
-for i in players_dict[]['name']
+team_a_members = [
+    player['name']
+    for player in players_dict.values()
+    if player['team'] == 'A' and player['status'] == 'Rest'
+]
+print(team_a_members)
