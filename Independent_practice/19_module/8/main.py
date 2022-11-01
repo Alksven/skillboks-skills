@@ -17,3 +17,17 @@ team_a_members = [
     if player['team'] == 'A' and player['status'] == 'Rest'
 ]
 print(team_a_members)
+
+team_b_member = [
+    player['name']
+    for player in players_dict.values()
+    if player['team'] == 'B' and player['status'] == 'Training'
+]
+print(team_b_member)
+
+team_c_member = [
+player['name']
+    for player in players_dict.values()
+if player['team'] == 'C' and player['status'] == 'Travel'
+]
+print(team_c_member)
