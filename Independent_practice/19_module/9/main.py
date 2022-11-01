@@ -1,4 +1,3 @@
-
 text = input('Enter text: ')
 symbol = set(".,;:!?")
 count = 0
