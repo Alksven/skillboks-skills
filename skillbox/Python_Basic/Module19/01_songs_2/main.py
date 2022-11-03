@@ -11,10 +11,13 @@ violator_songs = {
 }
 
 num_songs = int(input('Сколько песен выбрать? '))
-name_songs = {input(f'Название {i + 1} песни: ') for i in range(num_songs)}
 time_songs = 0
 
-for i in name_songs:
-    time_songs += violator_songs[i]
+for count in range(num_songs):
+    name = input('Название песни: ')
+    if name in violator_songs:
+        time_songs += violator_songs[name]
+    else:
+        print('Такой песни нет!')
 
 print('Общее время звучания песен: {0} минуты'.format(time_songs))
