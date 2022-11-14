@@ -1,14 +1,33 @@
+def function(name, people_dict):
+    name_count = dict()
+    for i_name in people_dict.values():
+        if name == i_name[0]:
+
+
+
+
+
+
+
+
+
+
 people_num = int(input('Введите количество человек: '))
+all_people = set()
 people_dict = dict()
-count_pep = 0
+
 for count in range(people_num):
     person_parents = input(f'{count} пара: ').split()
+    all_people.add(person_parents[0])
+    all_people.add(person_parents[1])
     people_dict[count] = person_parents
-for i_2 in people_dict.values():
-    person_num = function()
+
+for name in all_people:
+    function(name, people_dict)
 
 
 print(people_dict)
+print(all_people)
 
 # Введите количество человек: 9
 #
