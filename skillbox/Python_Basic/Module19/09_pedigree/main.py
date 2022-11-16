@@ -1,48 +1,20 @@
-def function(name, people_dict):
-    name_count = dict()
-    for i_name in people_dict.values():
-        if name == i_name[0]:
-
-
-
-
-
-
-
-
-
-
 people_num = int(input('Введите количество человек: '))
-all_people = set()
 people_dict = dict()
+all_people = dict()
 
-for count in range(people_num):
-    person_parents = input(f'{count} пара: ').split()
-    all_people.add(person_parents[0])
-    all_people.add(person_parents[1])
-    people_dict[count] = person_parents
+for count in range(people_num - 1):
+    person, parents = input(f'{count + 1} пара: ').split()
+    people_dict[person] = parents
+    all_people[person] = 0
+    all_people[parents] = 0
 
-for name in all_people:
-    function(name, people_dict)
+for i in people_dict:
+    name = i
+    while name in people_dict:
+        name = people_dict[name]
+        all_people[i] += 1
 
+print('\nВысота» каждого члена семьи:')
+for i_name in all_people:
+    print(i_name, all_people[i_name])
 
-print(people_dict)
-print(all_people)
-
-# Введите количество человек: 9
-#
-# Первая пара: Alexei Peter_I
-#
-# Вторая пара: Anna Peter_I
-#
-# Третья пара: Elizabeth Peter_I
-#
-# Четвёртая пара: Peter_II Alexei
-#
-# Пятая пара: Peter_III Anna
-#
-# Шестая пара: Paul_I Peter_III
-#
-# Седьмая пара: Alexander_I Paul_I
-#
-# Восьмая пара: Nicholaus_I Paul_I
