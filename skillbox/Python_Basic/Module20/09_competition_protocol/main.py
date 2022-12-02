@@ -1,14 +1,5 @@
-def function():
-    for i in pro_dict:
-        if i[0] in win_dice and i[1] < win_dice[i[0]]:
-            continue
-        else:
-            win_dice[i[0]] = i[1]
-
-
-def f_winner():
-    for i in range(3):
-
+def score_key(a):
+    return a[1][0] * 100000000 - a[1][1]
 
 
 num_of_pro = int(input('Сколько записей вносится в протокол? '))
@@ -17,25 +8,20 @@ win_dice = dict()
 
 print('Записи (результат и имя):')
 for i_pro in range(num_of_pro):
-    add_pro = input(f'{i_pro + 1}-я запись: ').split()
-    pro_dict[(add_pro[1], int(add_pro[0]))] = i_pro
+    ball, name = input(f'{i_pro + 1}-я запись: ').split()
+    ball = int(ball)
+    if name in pro_dict:
+        if ball > pro_dict[name][0]:
+            pro_dict[name][0] = ball
+            pro_dict[name][1] = i_pro
+    else:
+        pro_dict[name] = [ball, i_pro]
 
-function()
-f_winner()
+scores = list(pro_dict.items())
+scores.sort(key=score_key, reverse=True)
 
-print(win_dice)
+print('\nИтоги соревнований: ')
 
-# winners = sorted(pro_dict.items(), key=lambda item: item[1], reverse=True)
-#
-# for i in range(3):
-#     print(f'{i + 1}-е место. {winners[i][0]} ({winners[i][1]})')
-
-# 69485 Jack
-# 95715 qwerty
-# 95715 Alex
-# 83647 M
-# 197128 qwerty
-# 95715 Jack
-# 93289 Alex
-# 95715 Alex
-# 95715 M
+for winner_index in 0, 1, 2:
+    print(f'{winner_index + 1} место {scores[winner_index][0]}', end=' ')
+    print(f'({scores[winner_index][1][0]})', sep='')
