@@ -27,7 +27,6 @@ surname = ''
 for i in students:
     pairs.append(tuple((i, students[i]['age'])))
     hobby += (students[i]['interests'])
-    hobby = tuple(hobby)
     surname += students[i]['surname']
 
 print('Список пар "ID студента — возраст":', pairs)
