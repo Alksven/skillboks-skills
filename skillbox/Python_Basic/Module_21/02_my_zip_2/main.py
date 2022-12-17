@@ -1,11 +1,16 @@
-def shortest(first, second):
-    return min(len(first), len(second))
+def zipp(*args):
+    length = min(len(element) for element in args)
+    new_list = [[item for index, item in enumerate(element) if index < length]for element in args]
+    list_two = [[new_list[second_index][first_index] for second_index in range(len(new_list))]
+                for first_index in range(length)]
+    tuple_list = [tuple(list_two[index]) for index in range(length)]
+    print(tuple_list)
 
 
-first = 'asfd'
-second = [1, 2, 3, 4]
+a = [1, 2, 3, 4, 5]
 
-ready_list = [(first[i], second[i])
-              for i in range(shortest(list(first), list(second)))]
+b = {1: "s", 2: "q", 3: 4}
 
-print(ready_list)
+x = (1, 2, 3, 4, 5)
+
+zipp(a, b, x)
