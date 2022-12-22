@@ -30,19 +30,11 @@ site = {
 }
 
 num_of_website = int(input('Сколько сайтов:'))
-copy_dict = copy.deepcopy(site)
-
-
+name_dict = dict()
 
 for i in range(num_of_website):
     name_product = input('Введите название продукта для нового сайта: ')
+    name_dict[name_product] = copy.deepcopy(site)
     print('Сайт для', name_product)
-    create_website(name_product, copy_dict)
-    print(copy_dict)
-
-
-
-
-
-
-
+    create_website(name_product, name_dict[name_product])
+    print(name_dict)
