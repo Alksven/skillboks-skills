@@ -1,27 +1,27 @@
 def encryption():
-
     text = open('text.txt', 'r')
     ready_file = open('cipher_text.txt', 'a')
 
     for step, word in enumerate(text):
         for l in word:
             if l.isalpha():
-                if l.isupper():
-                    ready_file.write(letters_upper[letters_upper.index(l) + step + 1])
-                else:
-                    ready_file.write(letters_lower[letters_lower.index(l) + step + 1])
+                ready_file.write(length(step + 1, l))
             else:
                 ready_file.write(l)
+    text.close()
+    ready_file.close()
 
-def length():
+def length(n_num, let):
+    if let.isupper():
+        letters = alphabet.upper()
+    else:
+        letters = alphabet.lower()
+    if letters.index(let) + n_num >= len(letters):
+        return letters[letters.index(let) + n_num - len(letters)]
+    else:
+        return letters[letters.index(let) + n_num]
 
 
-
-
-letters_lower = 'abcdefghijklmnopqrstuvwxyz'
-letters_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-
-
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 encryption()
