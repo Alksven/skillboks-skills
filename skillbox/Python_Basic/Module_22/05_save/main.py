@@ -20,16 +20,15 @@ def change_file(path_file):
             exit()
 
 
-
-
 new_text = input('Введите строку: ')
 print('Куда хотите сохранить документ? '
       'Введите последовательность папок (через пробел): ')
 path = input().split()
-
+path.insert(0, os.path.abspath(os.sep))
 name_file = input('Введите имя файла:')+'.txt'
 
 path.append(name_file)
+print(path)
 ready_path = os.sep.join(path)
 flag = os.path.isfile(ready_path)
 
