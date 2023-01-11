@@ -1,9 +1,9 @@
 file_number = open('numbers.txt', 'r')
 ready_file = open('answer.txt', 'w')
 summ = 0
+read_file = file_number.read().split()
 
-del_sym = [i.strip() for i in file_number]
-for i in del_sym:
+for i in read_file:
     if i.isdigit():
         summ += int(i)
 
