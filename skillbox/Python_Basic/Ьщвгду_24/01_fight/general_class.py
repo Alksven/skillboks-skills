@@ -1,12 +1,9 @@
 
 class Fight:
 
-    def __init__(self, player):
-        self.name_player = 'Воин {}'.format(player)
-        self.health = 100
+    def __init__(self, player, health=100):
+        self.name_player = 'Warrior {}'.format(player)
+        self.health = health
 
-    def damage(self, player):
-        if player == 0:
-            print('Бьет первый воин')
-            self.
-
+    def info(self):
+        print(self.players)
