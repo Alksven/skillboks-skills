@@ -1,8 +1,16 @@
-from general_class import Fight
+from general_class import Players
 import random
 
-player_1 = Fight('1')
-player_2 = Fight('2')
+players_1 = Players('Warrior 1')
+players_2 = Players('Warrior 2')
 count_round = 1
+while True:
+    select_player = random.randint(1, 2)
+    if select_player == 1:
+        Players.damage(players_2, players_1.name_player)
+    else:
+        Players.damage(players_1, players_2.name_player)
 
-win = Fight.info()
+
+
+
