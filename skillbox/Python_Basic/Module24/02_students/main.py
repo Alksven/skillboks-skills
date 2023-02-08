@@ -1,6 +1,4 @@
 from classes import Student
-from classes import Sort
-
 
 def function(student):
     name = (f'{student[0]} {student[1]}')
@@ -8,13 +6,14 @@ def function(student):
     grade = student[3:]
     return name, group, grade
 
+stud_list = list()
 
 with open('student_list.txt', 'r') as student_list:
-    for info_stud in student_list:
+    for i, info_stud in enumerate(student_list):
         name, group, grade = function(info_stud.split())
-        Student(f'{name}', group, grade)
+        stud_list.append(Student(f'{name}', group, grade))
 
+ready_stud_list = sorted(stud_list, key=lambda x: x.grade, reverse=True)
 
-Sort.sorted(Student.list_students, Student.list_students)
-
-
+for i in range(len(ready_stud_list)):
+    ready_stud_list[i].sorted()
