@@ -7,10 +7,6 @@ count_round = 1
 while True:
     select_player = random.randint(1, 2)
     if select_player == 1:
-        Players.damage(players_2, players_1.name_player)
+        Players.damage(players_2, players_1)
     else:
-        Players.damage(players_1, players_2.name_player)
-
-
-
-
+        Players.damage(players_1, players_2)
