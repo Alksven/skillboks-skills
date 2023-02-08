@@ -1,11 +1,12 @@
 from classes import Circle
 
-def add_circle():
-    print(f'Введите параметры круга: {count_circle}')
+def add_circle(count):
+    print('Введите параметры круга: {}'.format(count))
     x_point = float(input("x = "))
     y_point = float(input("y = "))
     r_circle = float(input("R = "))
-    circle_dict[count_circle] = Circle(f'circle_{count_circle}', x_point, y_point, r_circle)
+    return x_point, y_point, r_circle
+
 
 
 action = '\n1. Найти площадь этого круга.\n2. Найти периметр этого круга.\n3. Увеличивать этот круг.\n' \
@@ -13,7 +14,7 @@ action = '\n1. Найти площадь этого круга.\n2. Найти �
 
 count_circle = 1
 circle_dict = dict()
-circle_dict[count_circle] = Circle(f'circle_{count_circle}', 0.0, 0.0, 2.0)
+circle_dict[count_circle] = Circle(f'circle_{count_circle}', 0.0, 0.0, 1.0)
 
 while True:
     print(action)
@@ -27,13 +28,14 @@ while True:
     if select_action == 4:
         if len(circle_dict) > 1:
             for i in range(1, len(circle_dict)):
-                circle_dict[count_circle].intersections(circle_dict[i].x, circle_dict[i].y, circle_dict[i].r, circle_dict[i].num_circle)
+                circle_dict[count_circle].intersections(circle_dict[i])
         else:
             print('Вы добавили всего один круг. Нельзя проверить пересечения.')
 
     if select_action == 5:
         count_circle += 1
-        add_circle()
+        x, y, r = add_circle(count_circle)
+        circle_dict[count_circle] = Circle(f'circle_{count_circle}', x, y, r)
     if select_action == 6:
         print('Программа завершена')
         break

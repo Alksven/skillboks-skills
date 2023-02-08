@@ -22,15 +22,13 @@ class Circle:
         self.r = self.r * add_size
         print('Новый радиус круга = {}'.format(self.r))
 
-    def intersections(self, old_x, old_y, old_r, num_old_circle):
-        hypotenuse = (abs(self.x - old_x) ** 2) + (abs(self.y - old_y) ** 2)
-        summ_r = self.r + old_r
-        print(hypotenuse)
-        print(summ_r)
+    def intersections(self, circle):
+        hypotenuse = (abs(self.x - circle.x) ** 2) + (abs(self.y - circle.y) ** 2)
+        summ_r = self.r + circle.r
         if summ_r >= math.sqrt(hypotenuse):
-            print('Круг пересекается с кругом {}'.format(num_old_circle))
+            print('Круг пересекается с кругом {}'.format(circle.num_circle))
         else:
-            print('Круг не пересекается с кругом {}.'.format(num_old_circle))
+            print('Круг не пересекается с кругом {}.'.format(circle.num_circle))
 
 
 
