@@ -1,34 +1,54 @@
 class Potato:
+    states = {
+        0: 'Отсутствует',
+        1: 'Росток',
+        2: 'Зелёная',
+        3: 'Зрелая',
+        4: 'Сгнила'
+    }
 
-    readiness_list = ['No potatoes', 'This potatoes is green', 'This potatoes is ripe', 'This potatoes is ready', 'This potato is rotten']
+    def __init__(self, index):
+        self.index = index
+        self.state = 0
 
-    def __init__(self, number):
-        self.num_potato = number
-        self.readiness = 0
-        print('{} the potato is planted.'.format(number))
-        Garden.potato_list.append(self)
+    def grow(self):
+        if self.state == 4:
+            print('Картошка {} {} и пропала'.format(self.index, self.states[self.state]))
 
-    def info_about_Potato(self):
-        print(self.num_potato, '-- Status:', self.readiness_list[self.readiness])
+        elif self.state == 0:
+            print('Садовник уничтожил картошку {}'.format(self.index))
+            Garden.potato.remove(self)
+        if self.state < 3:
+            self.state += 1
+        self.print_state()
 
-    def potatoes_are_growing(self):
-        pass
+    def print_state(self):
+        print('Картошка {} сейчас {}'.format(
+            self.index,
+            Potato.states[self.state]
+        ))
 
 
 class Garden:
-    potato_list = list()
 
-    def __init__(self):
-        self.num_potato = None
+    def __init__(self, count):
+        self.potato = [Potato(index) for index in range(1, count + 1)]
+        Gardener(self)
 
-    def garden_information(self):
-        print(self.num_potato)
+    def grow_all(self):
+        print('Картошка прорастает')
+        for i_potato in self.potato:
+            i_potato.grow()
 
 
-    def growing_potatoes(self):
-        pass
 
 
 
 class Gardener:
-    pass
+
+    def __init__(self, garden_list):
+        self.name = 'Василий'
+        self.garden = garden_list
+
+
+
