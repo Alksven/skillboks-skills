@@ -2,12 +2,22 @@ from classes import Gardener
 from classes import Garden
 import random
 
-gardener = Gardener('Василий')
-my_garden = Garden()
+name_gar = input('Как звать садовника? ')
+count_potato = int(input('Сколько картошки посадим?'))
+my_garden = Garden(count_potato)
+gardener = Gardener(name_gar, my_garden)
+
 while True:
     my_garden.grow_all()
-    gardener_state = random.randint(0, 1)
-    if gardener_state == 0:
+    a = int(input('Что делаем? 1 продолжить 2 собрать урожай'))
+    if a == 1:
+        gardener.drink_gardener()
+
+
+
+
+
+
 
 
 

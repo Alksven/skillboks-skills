@@ -1,15 +1,33 @@
 import random
 
+
 class Gardener:
 
-    def __init__(self, name):
+    def __init__(self, name, garden):
         self.name = name
         self.gardener_state = True
-        self.job = Garden()
+        self.job = garden
 
+    def drink_gardener(self):
+        state = random.randint(0, 1)
+        if state == 0:
+            self.gardener_state = False
+        else:
+            self.gardener_state = True
+        self.care()
 
-    def water_potatoes(self):
-        select = random.randint(0, len(self.garden))
+    def care(self):
+        choice_potato = random.randint(0, len(self.job.potato))
+        if self.gardener_state == False:
+            print('{} сегодня выпил и упал на картошку {} и повредил ее.'.format(
+                self.name,
+                self.job.potato[choice_potato].index))
+            Potato.step_back(self.job.potato[choice_potato])
+        else:
+            print('{} сегодня трезвый. Он полил картошку {}'.format(
+                self.name,
+                self.job.potato[choice_potato].index))
+            Potato.grow(self.job.potato[choice_potato])
 
 
 
@@ -32,41 +50,33 @@ class Potato:
         self.print_state()
 
 
+
+    def step_back(self):
+        self.state -= 1
+
+
     def print_state(self):
         print('Картошка {} сейчас {}'.format(self.index, Potato.states[self.state]
         ))
 
 
+
 class Garden:
 
-
-    def __init__(self):
-        count_potato = int(input('Сколько картошки посадим?'))
+    def __init__(self, count_potato):
         self.potato = [Potato(index) for index in range(1, count_potato + 1)]
-        print(self.potato)
-        Gardener(self)
 
     def grow_all(self):
         print('Картошка прорастает')
         for i_potato in self.potato:
             i_potato.grow()
-        Garden.delete(self)
+
 
     def delete(self):
-        for i in self.potato:
-            if i.state == 4:
-                print('WARNING: Картошка {} {} и пропала'.format(i.index, i.states[i.state]))
-                self.potato.remove(i)
-            elif i.state == 0:
-                print('WARNING: Садовник уничтожил картошку {}'.format(i.index))
-                self.potato.remove(i)
-
-
-
-
-
-
-
-
+        if self.potato[].state == 4:
+            print('WARNING: Картошка {} {} и пропала'.format(self.index, self.states[self.state]))
+        elif i.state == 0:
+            print('WARNING: Садовник уничтожил картошку {}'.format(i.index))
+            self.potato.remove(i)
 
 
