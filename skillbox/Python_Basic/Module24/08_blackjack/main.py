@@ -1,9 +1,14 @@
-# from classes import Deck
+from classes import Deck
+from classes import Player
 import random
-deck = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
-deck1 = ['1', '2', '3', '4', '5']
-# a = Deck()
-# a.create()
 
-a = random.choice(deck1)
-print(deck.keys(random.randint(0, 3)))
+deck = Deck()
+p2 = Player('Вася')
+p1 = []
+print('Раздача:')
+for i in range(2):
+    p1.append(deck.create())
+    p2.cards.append(deck.create())
+
+
+# while len(deck.deck['♠'] + len(deck.deck['♥'] + len(deck.deck['♣'] + len(deck.deck['♦']) > 10:
