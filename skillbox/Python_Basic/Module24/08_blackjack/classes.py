@@ -1,13 +1,11 @@
 import random
+
+
 class Card:
 
     def __init__(self, suit, value):
         self.card_suit = suit
         self.card_value = value
-
-    #  Карта, у которой есть значения
-    #   - масть
-    #   - ранг/принадлежность 2, 3, 4, 5, 6, 7 и так далее
 
 
 class Deck:
@@ -24,23 +22,27 @@ class Deck:
         return Card(choice_card_suit, choice_card_value)
 
 
-
-
 class Player:
 
     def __init__(self, name):
         self.name = name
         self.cards = list()
-        self.dexk = Deck()
-
+        self.deck = Deck()
 
     def add_cards(self):
-        self.cards.append(self.dexk.create())
+        self.cards.append(self.deck.create())
 
-    def info_print(self):
-        print('У {} сейчас {} карт(ы):'.format(self.name, len(self.cards)))
+    def info(self):
+        self.summ_cards = [0]
         for i_card in self.cards:
             print(i_card.card_suit, i_card.card_value)
-
-
-    #  Игрок, у которого есть имя и какие-то карты на руках
+            if isinstance(i_card.card_value, int):
+                self.summ_cards[0] += i_card.card_value
+            elif i_card.card_value == 'T':
+                self.summ_cards[0] += 11
+            elif i_card.card_value in ['V', 'D', 'K']:
+                self.summ_cards[0] += 10
+            self.summ_cards.append(i_card.card_value)
+            if self.summ_cards[0] > 21 and self.summ_cards.count('T') > 0:
+                self.summ_cards[0] -= 10
+        print('Количество очков:', self.summ_cards[0])
