@@ -51,8 +51,15 @@ class Butterfly(CanFly):
 
 
 
-b = Rocket
+b = Butterfly()
 print(b)
 b.take_off()
 print(b)
 
+print()
+a = Rocket()
+print(a)
+a.take_off()
+print(a)
+a.land()
+print(a)
