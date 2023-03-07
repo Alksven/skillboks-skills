@@ -1,9 +1,9 @@
 class Person:
 
     def __init__(self, surname, name, age):
-        self.__surname = surname
-        self.__name = name
-        self.__age = age
+        self._surname = surname
+        self._name = name
+        self._age = age
 
 
 
@@ -22,7 +22,7 @@ class Manager(Employee, Person):
         self.salary = 13000
 
     def __str__(self):
-        return f'Surname: {self.__surname}: Name: {self.__name}. Age: {self.__age}. Salary: {self.salary}'
+        return f'Surname: {self._surname}. Name: {self._name}. Age: {self._age}. Salary: {self.salary}'
 
 
 class Agent(Employee, Person):
@@ -37,7 +37,7 @@ class Agent(Employee, Person):
         self.salary = 5000 + (self.sales / 100 * 5)
 
     def __str__(self):
-        return f'Surname: {self.__surname}: Name: {self.__name}. Age: {self.__age}. Salary: {self.salary}'
+        return f'Surname: {self._surname}. Name: {self._name}. Age: {self._age}. Salary: {self.salary}'
 
 
 class Worker(Employee, Person):
@@ -52,21 +52,4 @@ class Worker(Employee, Person):
         self.salary = 100 * self.hours
 
     def __str__(self):
-        return f'Surname: {self.__surname}: Name: {self.__name}. Age: {self.__age}. Salary: {self.salary}'
-
-
-employee = [
-        Manager(surname='Петров', name="Женя", age=34),
-        Manager(surname="Иванов", name="Вова", age=25),
-        Manager(surname="Сидоров", name="Валентин", age=20),
-        Agent(surname="Пилецкий", name="Алексендр", age=35, sales=1000000),
-        Agent(surname="Никрасов", name="Олег", age=27, sales=650000),
-        Agent(surname="Мироненко", name="Юлия", age=30, sales=345000),
-        Worker(surname="Князева", name="Светлана", age=18, hours=120),
-        Worker(surname="Алексеев", name="Руслан", age=33, hours=80),
-        Worker(surname="Ганиев", name="Ринат", age=39, hours=50)
-]
-
-for i in employee:
-        i.calculate_salary()
-        print(i)
+        return f'Surname: {self._surname}. Name: {self._name}. Age: {self._age}. Salary: {self.salary}'

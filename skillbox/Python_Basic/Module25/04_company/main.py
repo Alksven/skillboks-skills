@@ -2,7 +2,7 @@ from classes import Manager
 from classes import Agent
 from classes import Worker
 
-employee = [
+employees = [
         Manager(surname='Петров', name="Женя", age=34),
         Manager(surname="Иванов", name="Вова", age=25),
         Manager(surname="Сидоров", name="Валентин", age=20),
@@ -14,5 +14,6 @@ employee = [
         Worker(surname="Ганиев", name="Ринат", age=39, hours=50)
 ]
 
-for i in employee:
-        print(i.calculate_salary())
+for employee in employees:
+        employee.calculate_salary()
+        print(employee)
