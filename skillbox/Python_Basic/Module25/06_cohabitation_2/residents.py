@@ -11,9 +11,10 @@ class HouseResidents:
 
 
     def eat(self):
+        print('поел')
         self.satiety += random.randint(10, 30)
 
-    def satiety_consumption(self):
+    def satiety_down(self):
         self.satiety -= 10
         if self.satiety <= 0:
             print({self.name}, 'умер')
@@ -21,43 +22,60 @@ class HouseResidents:
 
 
 
-class Person():
+class Human:
 
     def __init__(self):
         self.happiness = 100
 
     def touch_cat(self):
         self.happiness += 5
-        HouseResidents.satiety_consumption(self)
+        self.satiety_down()
+
+    def heppy_down(self):
+        print(f'{self.}')
+        self.happiness -= 10
+
+
 
 
 
 class Pet:
+    pass
 
-class Husband(HouseResidents, Person):
+class Husband(HouseResidents, Human):
     def __init__(self, name, house):
-        super().__init__(name, house)
+        HouseResidents.__init__(self, name, house)
+        Human.__init__(self)
 
     def play(self):
-        self.satiety_consumption()
+        self.satiety_down()
 
 
     def work(self):
-        self.satiety_consumption()
+        print('зараборал 150')
+        self.house.money += 150
+        self.satiety_down()
 
 
-class Wife(HouseResidents, Person):
+class Wife(HouseResidents, Human):
     def __init__(self, name, house):
         super().__init__(name, house)
 
     def buy_products(self):
-        self.satiety_consumption()
+        self.house.money -= 20
+        self.house.food_people += 10
+        self.house.food_cat += 10
+        self.satiety_down()
 
     def buy_coat(self):
-        self.satiety_consumption()
+        self.house.money -= 350
+        self.satiety_down()
 
     def housework(self):
-        self.satiety_consumption()
+        count_dirt = random.randint(1, self.house.dirt)
+        self.house.dirt -= count_dirt
+        print(f'{self.name} убрала {count_dirt} грязи')
+        self.satiety_down()
 
 
 class Cat(HouseResidents, Pet):
@@ -69,10 +87,12 @@ class Cat(HouseResidents, Pet):
         self.satiety += random.randint(5, 10) * 2
 
     def sleep(self):
-        self.satiety_consumption()
+        self.satiety_down()
 
     def tear_wallpaper(self):
-        self.satiety_consumption()
+        print(f'{self.name} дерет обои')
+        self.house.dirt += 5
+        self.satiety_down()
 
 
 

@@ -9,3 +9,12 @@ wife = Wife(name='Валентина', house=house)
 cat = Cat(name='Барсик', house=house)
 
 list_house_residents = [husband, wife, cat]
+
+
+
+for day in range(1, 365):
+    print(f'День {day}')
+    house.dirt += 5
+    if house.dirt >= 90:
+        husband.heppy_down()
+        wife.heppy_down()
