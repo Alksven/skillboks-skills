@@ -30,11 +30,8 @@ class HouseResidents:
         else:
             print(self)
 
-
     def __str__(self):
         return f'\nПоказатели {self.name}:\nСытость: {self.satiety}'
-
-
 
 
 class Human:
@@ -60,6 +57,7 @@ class Human:
 
 class Pet:
     pass
+
 
 class Husband(HouseResidents, Human):
 
@@ -93,12 +91,10 @@ class Husband(HouseResidents, Human):
             self.touch_cat()
 
 
-
-
-
 class Wife(HouseResidents, Human):
 
     coat_full = 0
+
     def __init__(self, name, house):
         HouseResidents.__init__(self, name, house)
         Human.__init__(self)
@@ -146,7 +142,6 @@ class Wife(HouseResidents, Human):
             self.touch_cat()
 
 
-
 class Cat(HouseResidents, Pet):
 
     def __init__(self, name, house):
@@ -183,4 +178,3 @@ class Cat(HouseResidents, Pet):
                 self.sleep()
             if action == 2:
                 self.tear_wallpaper()
-

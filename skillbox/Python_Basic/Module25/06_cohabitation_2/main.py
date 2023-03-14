@@ -30,7 +30,7 @@ for day in range(1, 366):
             list_house_residents.remove(person)
 
     if len(list_house_residents) == 0:
-        print('Все умерли')
+        print('\nВСЕ УМЕРЛИ')
         break
 
     day += 1
@@ -43,8 +43,3 @@ print(f'{husband.name} заработал за год: {Husband.money_full}')
 print(f'{wife.name} купила шуб за год: {Wife.coat_full}')
 print(f'{wife.name} и {husband.name} съели за год: {HouseResidents.count_people_food}')
 print(f'{cat.name} съели за год: {HouseResidents.count_cat_food}')
-
-
-
-
-
