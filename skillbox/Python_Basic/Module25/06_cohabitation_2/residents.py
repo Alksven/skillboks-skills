@@ -62,6 +62,7 @@ class Pet:
 class Husband(HouseResidents, Human):
 
     money_full = 0
+
     def __init__(self, name, house):
         HouseResidents.__init__(self, name, house)
         Human.__init__(self)

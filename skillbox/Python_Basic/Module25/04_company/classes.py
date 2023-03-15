@@ -6,7 +6,6 @@ class Person:
         self._age = age
 
 
-
 class Employee(Person):
 
     def calculate_salary(self):
@@ -32,7 +31,6 @@ class Agent(Employee, Person):
         self.sales = sales
         self.salary = 0
 
-
     def calculate_salary(self):
         self.salary = 5000 + (self.sales / 100 * 5)
 
@@ -46,7 +44,6 @@ class Worker(Employee, Person):
         super().__init__(surname, name, age)
         self.hours = hours
         self.salary = 0
-
 
     def calculate_salary(self):
         self.salary = 100 * self.hours
