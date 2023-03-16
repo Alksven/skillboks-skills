@@ -1,10 +1,21 @@
-class MyDict:
+class Dict:
 
     def __init__(self):
-        self.__my_dict = dict()
+        self.dict = dict()
 
     def set_element(self, key, value):
-        self.__my_dict[key] = value
+        self.dict[key] = value
 
     def get_key(self, key):
-        return self.__my_dict.get(key, 0)
+        return self.dict.get(key)
+
+
+class MyDict(Dict):
+
+    def __init__(self):
+        super().__init__()
+
+    def get_key(self, key):
+        if key in self.dict:
+            return f'Key value {key} = {self.dict[key]}.'
+        return self.dict.get(key, 0)
