@@ -1,4 +1,4 @@
-from classes2 import MyDict
+from classes import MyDict
 
 person = MyDict()
 
