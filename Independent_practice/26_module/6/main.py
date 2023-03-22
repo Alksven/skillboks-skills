@@ -10,4 +10,4 @@ with open('number.txt', 'r') as num_list:
     for i in gen(num_list):
         summ += i
 
-print(summ) 
+print(summ)
