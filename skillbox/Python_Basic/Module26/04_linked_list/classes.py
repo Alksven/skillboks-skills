@@ -60,5 +60,17 @@ class LinkedList:
             prev.next = cur_node.next
             self.length -= 1
 
+    def get(self, index):
+        if index > self.length:
+            print('Индекс не найден')
+            raise IndexError
+        cur_node = self.head
+        cur_index = 0
 
-    # def get(self, index):
+        while cur_node is not None:
+            if cur_index == index:
+                cur_node = str(cur_node).split()
+                return cur_node[1]
+
+            cur_node = cur_node.next
+            cur_index += 1
