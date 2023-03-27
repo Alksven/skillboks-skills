@@ -1,4 +1,4 @@
-from typing import Callable, Any
+from typing import Callable
 import time
 
 
@@ -13,7 +13,7 @@ def timer(func: Callable) -> Callable:
         Функция обертка, замеряющая время выполнения func
         :param args: Аргументы переданные в функцию func
         :param kwargs: Ключевые слова, переданные в функцию func
-        :return: Руеультат вызова функции func
+        :return: Результат вызова функции func
         """
         start_time = time.time()
         func(*args, **kwargs)
