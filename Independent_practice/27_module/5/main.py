@@ -3,7 +3,7 @@ from typing import Callable
 
 def vegetables(func: Callable) -> Callable:
     """
-    Деоратор который добавляет офощи в бургер
+    Деоратор который добавляет овощи в бургер
     :param func: Декорируемая функция
     :return: Функция обертка, которая добавляет овощи в бургер
     """
