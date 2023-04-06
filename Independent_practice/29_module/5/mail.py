@@ -5,13 +5,13 @@ import time
 
 def time_create(cls):
     def wrapper(*args, **kwargs):
-        cls(*args, **kwargs)
+        result = cls(*args, **kwargs)
         time = datetime.datetime.now()
         print('Класс создан:', time)
         for i_method in dir(cls):
             if i_method.startswith('__') is False:
                 print(i_method)
-        return
+        return result
 
     return wrapper
 
@@ -47,3 +47,4 @@ class Car:
 car = Car(x=2, y=3, a=5)
 time.sleep(2)
 car_1 = Car(x=2, y=3, a=5)
+
