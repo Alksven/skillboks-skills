@@ -9,9 +9,9 @@ def check_permission(user: str) -> Callable:
     :param user: имя пользователя
     :return: функцию-обертку
     """
-    def check_permission_1(func: Callable) -> Callable:
+    def decorator_func(func: Callable) -> Callable:
         @functools.wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Callable:
+        def wrapper_func(*args: Any, **kwargs: Any) -> Callable:
             """
             Функция-обертка, которая проверяет, имеет ли пользователь необходимые права.
             :param args: позиционные аргументы, переданные в декорируемую функцию
@@ -23,8 +23,8 @@ def check_permission(user: str) -> Callable:
                 return result
             else:
                 raise PermissionError(f'у пользователя недостаточно прав, чтобы выполнить функцию {func.__name__}')
-        return wrapper
-    return check_permission_1
+        return wrapper_func
+    return decorator_func
 
 
 user_permissions: list = ['admin']
