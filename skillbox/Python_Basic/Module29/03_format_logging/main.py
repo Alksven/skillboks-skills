@@ -1,6 +1,5 @@
 import datetime
 
-
 def log_methods(form_data):
     def wrapper_method(method):
         def wrapper(*args, **kwargs):
