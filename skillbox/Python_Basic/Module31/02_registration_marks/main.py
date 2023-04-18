@@ -7,5 +7,5 @@ taxi_pattern = r'\b\w{2}\d{3}\d{,3}'
 
 num_car = re.findall(car_pattern, numbers)
 num_taxi = re.findall(taxi_pattern, numbers)
-print(num_car)
-print(num_taxi)
+print('Список номеров частных автомобилей:', num_car)
+print('Список номеров такси:', num_taxi)
